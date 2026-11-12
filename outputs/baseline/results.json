@@ -1,0 +1,67 @@
+{
+  "strategy": "feature_extraction",
+  "epochs": 3,
+  "seed": 42,
+  "learning_rate": 0.001,
+  "optimizer": "Adam",
+  "loss": "CrossEntropyLoss",
+  "classes": [
+    "aventurine",
+    "kafka",
+    "phainon_khaslana"
+  ],
+  "class_mapping": {
+    "aventurine": 0,
+    "kafka": 1,
+    "phainon_khaslana": 2
+  },
+  "counts": [
+    {
+      "class": "aventurine",
+      "train": 55,
+      "validation": 14
+    },
+    {
+      "class": "kafka",
+      "train": 58,
+      "validation": 15
+    },
+    {
+      "class": "phainon_khaslana",
+      "train": 79,
+      "validation": 20
+    }
+  ],
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4060",
+  "python": "3.14.3",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "cuda_runtime": "12.8",
+  "trainable_parameters": 1539,
+  "training_transform": "Compose(\n    RandomResizedCrop(size=(224, 224), scale=(0.7, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear, antialias=True)\n    RandomHorizontalFlip(p=0.5)\n    ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)\n)",
+  "validation_transform": "ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+  "validation_accuracy": 0.7755102040816326,
+  "validation_loss": 0.6812275867072903,
+  "confusion_matrix": [
+    [
+      9,
+      5,
+      0
+    ],
+    [
+      1,
+      14,
+      0
+    ],
+    [
+      0,
+      5,
+      15
+    ]
+  ],
+  "correct": 38,
+  "validation_count": 49,
+  "checkpoint_logits_identical": true,
+  "limitation": "Small validation set; original video provenance unavailable; no independent test set."
+}
