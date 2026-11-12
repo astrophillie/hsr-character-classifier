@@ -1,0 +1,5 @@
+file,expected_class,predicted_class,aventurine_score,kafka_score,phainon_khaslana_score
+aventurine_portrait.png,aventurine,phainon_khaslana,0.2287033349275589,0.37328800559043884,0.39800864458084106
+out_of_class_light_cone.png,out_of_class,phainon_khaslana,0.09478583186864853,0.4008367359638214,0.5043774247169495
+kafka_light_cone.png,kafka,kafka,0.27091699838638306,0.4013320803642273,0.32775092124938965
+phainon_khaslana_light_cone.png,phainon_khaslana,phainon_khaslana,0.12104656547307968,0.25564292073249817,0.6233105659484863
