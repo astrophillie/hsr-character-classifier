@@ -1,0 +1,172 @@
+{
+  "classes": [
+    "aventurine",
+    "kafka"
+  ],
+  "seed": 42,
+  "batch_sizes": {
+    "train": 16,
+    "validation": 32
+  },
+  "optimizer": "Adam",
+  "loss": "CrossEntropyLoss",
+  "train_transform": "Compose(\n    RandomResizedCrop(size=(224, 224), scale=(0.7, 1.0), ratio=(0.75, 1.3333), interpolation=bilinear, antialias=True)\n    RandomHorizontalFlip(p=0.5)\n    ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)\n)",
+  "val_transform": "ImageClassification(\n    crop_size=[224]\n    resize_size=[256]\n    mean=[0.485, 0.456, 0.406]\n    std=[0.229, 0.224, 0.225]\n    interpolation=InterpolationMode.BILINEAR\n)",
+  "counts": [
+    {
+      "class": "aventurine",
+      "train": 55,
+      "validation": 14
+    },
+    {
+      "class": "kafka",
+      "train": 58,
+      "validation": 15
+    }
+  ],
+  "runs": [
+    {
+      "run": "feature_extraction_3",
+      "strategy": "feature_extraction",
+      "epochs": 3,
+      "lr": 0.001,
+      "train_loss": 0.6188331531212393,
+      "train_accuracy": 0.6017699115044248,
+      "val_loss": 0.5486131310462952,
+      "val_accuracy": 0.6206896551724138,
+      "trainable_parameters": 1026,
+      "training_seconds": 14.86524879999979
+    },
+    {
+      "run": "feature_extraction_10",
+      "strategy": "feature_extraction",
+      "epochs": 10,
+      "lr": 0.001,
+      "train_loss": 0.28455552063157075,
+      "train_accuracy": 0.9380530973451328,
+      "val_loss": 0.32455140352249146,
+      "val_accuracy": 0.9310344827586207,
+      "trainable_parameters": 1026,
+      "training_seconds": 47.901977100000295
+    },
+    {
+      "run": "fine_tuning_10",
+      "strategy": "fine_tuning",
+      "epochs": 10,
+      "lr": 0.0001,
+      "train_loss": 0.014982438168232947,
+      "train_accuracy": 0.9823008849557522,
+      "val_loss": 0.12462782114744186,
+      "val_accuracy": 0.9655172413793104,
+      "trainable_parameters": 11177538,
+      "training_seconds": 59.115675299999566
+    }
+  ],
+  "selection": "Highest final-epoch validation accuracy; ties prefer earlier listed run; optimistic selection on small validation set.",
+  "best_run": "fine_tuning_10",
+  "best_validation_accuracy": 0.9655172413793104,
+  "confusion_matrix": [
+    [
+      13,
+      1
+    ],
+    [
+      0,
+      15
+    ]
+  ],
+  "unseen_groups": [
+    {
+      "group": "fresh/aventurine",
+      "count": 1,
+      "mean_top_softmax": 0.797626793384552,
+      "median_top_softmax": 0.797626793384552,
+      "aventurine_count": 0,
+      "aventurine_percent": 0.0,
+      "kafka_count": 1,
+      "kafka_percent": 100.0
+    },
+    {
+      "group": "fresh/himeko",
+      "count": 1,
+      "mean_top_softmax": 0.8666556477546692,
+      "median_top_softmax": 0.8666556477546692,
+      "aventurine_count": 0,
+      "aventurine_percent": 0.0,
+      "kafka_count": 1,
+      "kafka_percent": 100.0
+    },
+    {
+      "group": "fresh/kafka",
+      "count": 1,
+      "mean_top_softmax": 0.9593228697776794,
+      "median_top_softmax": 0.9593228697776794,
+      "aventurine_count": 0,
+      "aventurine_percent": 0.0,
+      "kafka_count": 1,
+      "kafka_percent": 100.0
+    },
+    {
+      "group": "fresh/phainon_khaslana",
+      "count": 1,
+      "mean_top_softmax": 0.59727942943573,
+      "median_top_softmax": 0.59727942943573,
+      "aventurine_count": 0,
+      "aventurine_percent": 0.0,
+      "kafka_count": 1,
+      "kafka_percent": 100.0
+    },
+    {
+      "group": "unseen/himeko",
+      "count": 11,
+      "mean_top_softmax": 0.9407309293746948,
+      "median_top_softmax": 0.9875110387802124,
+      "aventurine_count": 0,
+      "aventurine_percent": 0.0,
+      "kafka_count": 11,
+      "kafka_percent": 100.0
+    },
+    {
+      "group": "unseen/phainon_khaslana",
+      "count": 99,
+      "mean_top_softmax": 0.924697711612239,
+      "median_top_softmax": 0.983431875705719,
+      "aventurine_count": 94,
+      "aventurine_percent": 94.94949494949495,
+      "kafka_count": 5,
+      "kafka_percent": 5.05050505050505
+    },
+    {
+      "group": "validation",
+      "count": 29,
+      "mean_top_softmax": 0.9614602841179947,
+      "median_top_softmax": 0.9973025321960449,
+      "aventurine_count": 13,
+      "aventurine_percent": 44.827586206896555,
+      "kafka_count": 16,
+      "kafka_percent": 55.172413793103445
+    }
+  ],
+  "validation_score_groups": [
+    {
+      "subset": "correct validation",
+      "count": 28,
+      "mean_top_softmax": 0.9632824531623295,
+      "median_top_softmax": 0.997768223285675
+    },
+    {
+      "subset": "incorrect validation",
+      "count": 1,
+      "mean_top_softmax": 0.9104395508766174,
+      "median_top_softmax": 0.9104395508766174
+    }
+  ],
+  "optional_folder_counts": {
+    "himeko": 11
+  },
+  "python": "3.14.3",
+  "torch": "2.11.0+cu128",
+  "torchvision": "0.26.0+cu128",
+  "device": "cuda",
+  "gpu": "NVIDIA GeForce RTX 4060"
+}
