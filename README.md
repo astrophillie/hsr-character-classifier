@@ -2,7 +2,7 @@
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/astrophillie/hsr-character-classifier/blob/main/homework.ipynb)
 
-I adapted the ants-and-bees exercise from my transfer-learning course to recognize characters from Honkai: Star Rail. I used a pretrained ResNet18 in PyTorch to compare feature extraction and fine-tuning on a small image dataset.
+I adapted the ants-and-bees exercise from the transfer-learning course to recognize characters from Honkai: Star Rail. I used a pretrained ResNet18 in PyTorch to compare feature extraction and fine-tuning on a small image dataset.
 
 ## Results
 
